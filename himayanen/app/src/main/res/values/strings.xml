@@ -14,4 +14,8 @@
     <string name="optional_input">任意項目</string>
     <string name="title_activity_timetable">スケジュール</string>
 
+    <string name="title_activity_splash">SplashActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
 </resources>

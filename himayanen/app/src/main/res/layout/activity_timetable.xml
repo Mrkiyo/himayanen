@@ -239,7 +239,7 @@
 
             <Spinner
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:id="@+id/kinds_of_sightseeing"
                 android:entries="@array/spinner_sightseeing_kinds"/>
 
@@ -251,7 +251,7 @@
 
             <Spinner
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:id="@+id/area"
                 android:entries="@array/spinner_area"/>
 
@@ -264,7 +264,7 @@
 
             <Spinner
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:id="@+id/how_to_move"
                 android:entries="@array/spinner_how_to_move"/>
 
