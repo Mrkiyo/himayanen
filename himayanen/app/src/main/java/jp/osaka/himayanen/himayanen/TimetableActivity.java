@@ -1,5 +1,6 @@
 package jp.osaka.himayanen.himayanen;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -36,38 +37,27 @@ public class TimetableActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 AsyncTask t = new AsyncTask() {
+                    String result;
                     @Override
                     protected Object doInBackground(Object[] params) {
-                        String result = doGet();
+                        result = doGet();
                         Log.d("himayanen", result + "");
                         return null;
+                    }
+
+                    @Override
+                    protected void onPostExecute(Object o) {
+                        super.onPostExecute(o);
+                        Intent intent = new Intent();
+                        intent.setClassName(TimetableActivity.this, "jp.osaka.himayanen.himayanen.ResultActivity");
+                        intent.putExtra("SEARCH_RESULT", result);
+                        startActivity(intent);
+
                     }
                 };
                 t.execute();
             }
         });
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_timetable, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 
     public String doGet() {
@@ -81,16 +71,13 @@ public class TimetableActivity extends ActionBarActivity {
             String querySQL =
                     "PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>\n" +
                             "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n" +
-                            "\n" +
-                            "SELECT DISTINCT * WHERE{\n" +
-                            "?uri rdfs:label ?label;\n" +
-                            "geo:lat ?lat;\n" +
-                            "geo:long ?long.\n" +
-                            "FILTER ( ?lat > 34.701 && ?lat < 34.709\n" +
-                            "&& ?long > 135.49 && ?long < 135.50\n" +
-                            ")\n" +
-                            "}\n" +
-                            "LIMIT 100";
+                            "PREFIX bp:<http://data.lodosaka.jp/osaka-events/events20150626.ttl#>\n" +
+                            "select * where{\n" +
+                            "?s \n" +
+                            "rdfs:label ?title;\n" +
+                            "bp:イベントカテゴリー ?cat.\n" +
+                            "FILTER(regex(?cat,\"観光\"))\n" +
+                            "}";
 
             String sUrl ="http://db.lodc.jp/sparql";
             String url= URLEncoder.encode(baseURL, "UTF-8");

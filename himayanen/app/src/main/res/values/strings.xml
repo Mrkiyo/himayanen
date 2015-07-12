@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Himayanen</string>
+    <string name="title_activity_splash">Himayanen</string>
+
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
@@ -13,9 +15,5 @@
     <string name="neccesary_input">必須入力</string>
     <string name="optional_input">任意項目</string>
     <string name="title_activity_timetable">スケジュール</string>
-
-    <string name="title_activity_splash">SplashActivity</string>
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
-
+    <string name="title_activity_result">検索結果</string>
 </resources>
