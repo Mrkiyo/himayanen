@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="大阪市内 July 12 Sun"
+        android:text="大阪市内 July 13 Sun"
         android:layout_marginBottom="10dp"/>
 
 
@@ -23,9 +23,8 @@
 
         <LinearLayout
             android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="0.7">
+            android:layout_width="150dp"
+            android:layout_height="match_parent">
 
 
             <ScrollView
