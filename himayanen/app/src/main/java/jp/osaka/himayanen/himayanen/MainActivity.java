@@ -14,6 +14,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.HttpStatus;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.util.EntityUtils;
+
 
 public class MainActivity extends ActionBarActivity {
     private LocationManager mLocationManager;
@@ -60,6 +66,7 @@ public class MainActivity extends ActionBarActivity {
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                doGet("url"); //ここにオープンデータのURLをいれる
             }
         });
     }
@@ -68,7 +75,7 @@ public class MainActivity extends ActionBarActivity {
     protected void onResume() {
         super.onResume();
         // ロケーションマネージャのインスタンスを取得する
-        mLocationManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
+        mLocationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
         // 位置情報の更新を受け取るように設定
         mLocationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, // プロバイダ
@@ -104,4 +111,25 @@ public class MainActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    public String doGet(String url) {
+        try {
+            HttpGet method = new HttpGet(url);
+
+            DefaultHttpClient client = new DefaultHttpClient();
+
+            // ヘッダを設定する
+            method.setHeader("Connection", "Keep-Alive");
+
+            HttpResponse response = client.execute(method);
+            int status = response.getStatusLine().getStatusCode();
+            if (status != HttpStatus.SC_OK)
+                throw new Exception("");
+
+            return EntityUtils.toString(response.getEntity(), "UTF-8");
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
 }
