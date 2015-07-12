@@ -2,4 +2,7 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="time_picker_input_area_width">10dp</dimen>
+    <dimen name="schedule_margin_bottom">40dp</dimen>
+    <dimen name="schedule_text_size">15dp</dimen>
 </resources>

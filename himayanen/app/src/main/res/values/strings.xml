@@ -3,4 +3,15 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_input_detail">詳細</string>
+    <string name="place">場所</string>
+    <string name="time">時間</string>
+    <string name="location">位置情報</string>
+    <string name="start">開始</string>
+    <string name="end">終了</string>
+    <string name="kind_of_sight_seeing">観光の種類</string>
+    <string name="neccesary_input">必須入力</string>
+    <string name="optional_input">任意項目</string>
+    <string name="title_activity_timetable">スケジュール</string>
+
 </resources>

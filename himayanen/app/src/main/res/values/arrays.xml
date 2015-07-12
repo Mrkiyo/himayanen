@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="spinner_sightseeing_kinds">
+        <item>観光・地域振興</item>
+        <item>観光・文化</item>
+        <item>観光</item>
+        <item>文化</item>
+        <item>地域振興</item>
+        <item>スポーツ</item>
+        <item>その他</item>
+    </string-array>
+
+    <string-array name="spinner_area">
+        <item>大阪北</item>
+        <item>大阪南</item>
+    </string-array>
+
+    <string-array name="spinner_how_to_move">
+        <item>電車</item>
+        <item>車</item>
+        <item>徒歩</item>
+    </string-array>
+
+
+</resources> 
